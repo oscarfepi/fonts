@@ -1,18 +1,22 @@
 name: Build PBF Glyphs
 
-on:
-  push:
-    branches: [ "main" ]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
       - name: Build PBF glyphs
-        uses: linz/action-build-pbf-glyphs@v1
+        uses: linz/action-build-pbf-glyphs@v3
         with:
-          source: fonts
-          target: pbf
+          fonts-dir: fonts
+          out-dir: glyphs
+
+      - name: Upload glyphs
+        uses: actions/upload-artifact@v3
+        with:
+          name: glyphs
+          path: glyphs
