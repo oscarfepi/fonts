@@ -16,7 +16,7 @@ jobs:
           out-dir: glyphs
 
       - name: Upload glyphs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: glyphs
           path: glyphs
