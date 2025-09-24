@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build PBF glyphs
-        uses: linz/action-build-pbf-glyphs@v3
+        uses: linz/action-build-pbf-glyphs@v1
         with:
           fonts-dir: fonts
           out-dir: glyphs
