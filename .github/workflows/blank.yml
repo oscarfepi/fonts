@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build PBF glyphs
         uses: linz/action-build-pbf-glyphs@v3
         with:
-          fonts-dir: fonts
-          out-dir: glyphs
+          source: .
+          target: glyphs
 
       - name: Upload glyphs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: glyphs
           path: glyphs
